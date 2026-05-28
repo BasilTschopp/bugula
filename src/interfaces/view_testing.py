@@ -208,7 +208,7 @@ class ViewTesting:
         name = self.tc_listbox.get(sel[0])
         categories = get_categories()
         if not categories:
-            messagebox.showinfo("", "No categories defined in BUGULA_CATEGORIES.")
+            messagebox.showinfo("", "No categories defined in APP_CATEGORIES.")
             return
         from adapters.database.testcases import fetch_testcase_yaml, update_category
         _, current_cat = fetch_testcase_yaml(name)

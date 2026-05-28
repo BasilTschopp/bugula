@@ -1,6 +1,6 @@
 ﻿import logging
 
-log = logging.getLogger("bugula")
+log = logging.getLogger("app")
 
 
 def save_testcase(name: str, yaml_text: str, category: str = "") -> str:

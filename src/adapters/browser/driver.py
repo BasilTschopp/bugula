@@ -155,7 +155,7 @@ def _find_driver(name: str, browser: str = "") -> str:
 def _driver_cache_dir() -> str:
     local_app = os.environ.get("LOCALAPPDATA", "")
     base = local_app if local_app else os.path.expanduser("~")
-    d = os.path.join(base, "bugula", "drivers")
+    d = os.path.join(base, "app", "drivers")
     os.makedirs(d, exist_ok=True)
     return d
 

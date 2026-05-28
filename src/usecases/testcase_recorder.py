@@ -1,5 +1,5 @@
 ﻿"""
-recorder.py â€“ Session recorder for Bugula.
+recorder.py – Session recorder.
 
 Injects a JavaScript listener into the live browser page that captures:
   - clicks  (with a stable CSS selector)
@@ -18,9 +18,9 @@ from models.models import log
 
 _RECORDER_JS = r"""
 (function () {
-    if (window.__bugula_recorder_active__) return;
-    window.__bugula_recorder_active__ = true;
-    window.__bugula_events__ = window.__bugula_events__ || [];
+    if (window.__app_recorder_active__) return;
+    window.__app_recorder_active__ = true;
+    window.__app_events__ = window.__app_events__ || [];
 
     function bestSelector(el) {
         if (!el || el === document.body) return 'body';
@@ -53,7 +53,7 @@ _RECORDER_JS = r"""
     function pushEvent(obj) {
         obj.ts = Date.now();
         obj.url = location.href;
-        window.__bugula_events__.push(obj);
+        window.__app_events__.push(obj);
     }
 
     document.addEventListener('click', function (e) {
@@ -99,13 +99,13 @@ _RECORDER_JS = r"""
 """
 
 _POLL_JS = r"""
-var evts = window.__bugula_events__ || [];
-window.__bugula_events__ = [];
+var evts = window.__app_events__ || [];
+window.__app_events__ = [];
 return evts;
 """
 
 _REINJECT_JS = r"""
-window.__bugula_recorder_active__ = false;
+window.__app_recorder_active__ = false;
 """ + _RECORDER_JS
 
 _MIN_WAIT_MS = 1500

@@ -77,7 +77,7 @@ class ViewSettings:
 
     def _on_backup_db(self):
         from adapters.database.connection import _db_path
-        default = "bugula-backup-" + datetime.now().strftime("%Y%m%d-%H%M") + ".db"
+        default = "app-backup-" + datetime.now().strftime("%Y%m%d-%H%M") + ".db"
         dest = filedialog.asksaveasfilename(
             title="Save database backup",
             defaultextension=".db",

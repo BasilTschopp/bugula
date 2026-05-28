@@ -2,7 +2,7 @@
 import logging
 from dataclasses import dataclass
 
-log = logging.getLogger("bugula")
+log = logging.getLogger("app")
 log.setLevel(logging.DEBUG)
 
 

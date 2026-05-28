@@ -3,7 +3,7 @@ import yaml
 
 from models.models import NavigationItem
 
-log = logging.getLogger("bugula")
+log = logging.getLogger("app")
 
 
 def load_testcases(name: str) -> tuple[list[NavigationItem], dict]:

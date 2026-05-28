@@ -1,6 +1,6 @@
 from pathlib import Path
 
-_KEY_FILE = Path.home() / ".bugula" / "secret.key"
+_KEY_FILE = Path.home() / ".app" / "secret.key"
 
 
 def _key() -> bytes:

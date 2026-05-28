@@ -10,11 +10,11 @@ from interfaces.view_results   import ViewResults
 from interfaces.view_settings  import ViewSettings
 
 
-class BugulaApp(ViewTesting, ViewRecording, ViewResults, ViewSettings):
+class App(ViewTesting, ViewRecording, ViewResults, ViewSettings):
 
     def __init__(self):
         self.root = tk.Tk()
-        self.root.title("Bugula")
+        self.root.title("We Will See")
         self.root.geometry("960x640")
         self.root.minsize(760, 480)
         self.root.resizable(True, True)

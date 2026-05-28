@@ -16,8 +16,8 @@ def main():
         run_automated_cli()
         return
 
-    from interfaces.window import BugulaApp
-    BugulaApp().run()
+    from interfaces.window import App
+    App().run()
 
 
 if __name__ == "__main__":

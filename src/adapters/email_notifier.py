@@ -42,10 +42,10 @@ def send_failure_alert(run_name: str, results, *, automated: bool = False) -> No
     ok_count  = sum(1 for r in results if r.status == "OK")
     err_count = len(failures)
 
-    subject = f"Bugula: {err_count} error(s) – {run_name}"
+    subject = f"We Will See: {err_count} error(s) – {run_name}"
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
-    msg["From"]    = cfg["user"] or "bugula@localhost"
+    msg["From"]    = cfg["user"] or "noreply@localhost"
     msg["To"]      = cfg["recipient"]
     msg.attach(MIMEText(_build_text(run_name, ok_count, err_count, failures), "plain", "utf-8"))
     msg.attach(MIMEText(_build_html(run_name, ok_count, err_count, failures), "html",  "utf-8"))
@@ -117,7 +117,7 @@ def _build_html(run_name, ok, err, failures) -> str:
 
         <!-- Header -->
         <tr><td style="background:#ffffff;border-radius:18px 18px 0 0;padding:36px 40px 28px">
-          <p style="margin:0 0 6px;font-size:13px;color:#86868b;letter-spacing:.5px;text-transform:uppercase">Bugula</p>
+          <p style="margin:0 0 6px;font-size:13px;color:#86868b;letter-spacing:.5px;text-transform:uppercase">We Will See</p>
           <h1 style="margin:0;font-size:28px;font-weight:600;color:#1d1d1f;letter-spacing:-.5px">Test Run Failed</h1>
           <p style="margin:10px 0 0;font-size:15px;color:#86868b">{run_name}</p>
         </td></tr>
@@ -138,7 +138,7 @@ def _build_html(run_name, ok, err, failures) -> str:
 
         <!-- Footer -->
         <tr><td style="background:#f5f5f7;border-radius:0 0 18px 18px;padding:20px 40px;text-align:center">
-          <p style="margin:0;font-size:12px;color:#86868b">Sent by Bugula</p>
+          <p style="margin:0;font-size:12px;color:#86868b">Sent by We Will See</p>
         </td></tr>
 
       </table>
@@ -150,7 +150,7 @@ def _build_html(run_name, ok, err, failures) -> str:
 
 def _build_text(run_name, ok, err, failures) -> str:
     lines = [
-        "Bugula Test Alert",
+        "We Will See Test Alert",
         f"Run:    {run_name}",
         f"Result: {err} error(s), {ok} OK",
         "",
