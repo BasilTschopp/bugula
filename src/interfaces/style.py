@@ -6,8 +6,9 @@ import yaml
 
 
 def _style_path() -> str:
-    return os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])),
-                        "ui", "style.yaml")
+    if getattr(sys, "frozen", False):
+        return os.path.join(sys._MEIPASS, "interfaces", "style.yaml")
+    return os.path.join(os.path.dirname(os.path.abspath(__file__)), "style.yaml")
 
 
 def _load() -> dict:

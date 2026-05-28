@@ -2,11 +2,11 @@
 
 a = Analysis(
     ["main.py"],
-    pathex=[],
+    pathex=["."],
     binaries=[],
     datas=[
-        ("ui/style.yaml",    "ui"),
-        (".env.example",     "."),
+        ("interfaces/style.yaml", "interfaces"),
+        (".env.example",           "."),
     ],
     hiddenimports=[
         "dotenv",
