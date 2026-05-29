@@ -8,6 +8,8 @@ src/
 ├── interfaces/    # GUI: windows, views, styles
 ├── models/        # Data classes and shared helpers
 └── usecases/      # Business logic: test execution, recording, reading/writing
+data/              # Database and encryption key (not committed to git)
+docs/              # Documentation and conventions
 ```
 
 ### Code Style
